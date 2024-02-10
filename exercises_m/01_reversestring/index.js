@@ -7,7 +7,6 @@
 //   reverse('Greetings!') === '!sgniteerG'
 
 function reverse(str) {
-
 	//return normalReversal(str)
 	//return jsReversall(str)
 	//return jsReduce(str)
@@ -55,9 +54,11 @@ function jsReduceFancy(str) {
 }
 
 function jsForEach(str) {
+	debugger
 	let reversed = ""
 	for (let chr of str) {
 		reversed = chr + reversed
+		debugger
 	}
 	return reversed
 }
