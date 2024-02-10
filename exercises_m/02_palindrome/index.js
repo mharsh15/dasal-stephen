@@ -10,7 +10,8 @@
 function palindrome(str) {
 
 	//return strReverserMordern(str)
-	return strReversalJsStyle(str)
+	//return strReversalJsStyle(str)
+	return strReversalWithEvery(str)
 }
 
 
@@ -21,7 +22,7 @@ function palindrome(str) {
 function strReverserMordern(str) {
 
 
-	reverse = str.split("").reverse().join("")
+	const reverse = str.split("").reverse().join("")
 
 	return reverse === str
 
@@ -38,5 +39,26 @@ function strReversalJsStyle(str) {
 	return reverse === str
 }
 
-//console.log(palindrome("aha!aha"))
+/**
+ * every function,
+ * @param {*} str 
+ * @returns bolean 
+ */
+function strReversalWithEveryMH(str) {
+
+	return str.split("").reverse().every((chr, i) => { return chr === str[i] })
+}
+
+/**
+ * STEPHENS idea to compare last string with current
+ * @param {*} str 
+ * @returns 
+ */
+function strReversalWithEvery(str) {
+
+	return str.split("").every((chr, i) => { return chr === str[str.length - i - 1] })
+}
+
+
+console.log(palindrome("aha!aha"))
 module.exports = palindrome;
