@@ -10,7 +10,8 @@
 
 function reverseInt(n) {
 
-	return callbackInt(n)
+	//return callbackInt(n)
+	return (reverseString(n))
 
 }
 
@@ -41,5 +42,18 @@ function callbackPositiveInt(num, sum) {
 
 }
 
-console.log(reverseInt(1201))
+/**
+* shortcut with string
+ */
+
+function reverseString(num) {
+	const isNegative = num < 0 ? true : false
+
+	let numToString = String(isNegative ? num * -1 : num)
+	let newNum = numToString.split("").reverse().join("")
+	debugger
+	return Number(isNegative ? newNum * -1 : newNum)
+
+}
+
 module.exports = reverseInt;
