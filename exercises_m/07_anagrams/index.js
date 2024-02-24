@@ -42,10 +42,10 @@ function getWordToObject(word) {
 	const letterObject = {}
 	for (let letter of updatedWord) {
 		//console.log(letter)
-		if (letterObject[letter]) { letterObject[letter] += 1 } else {
-			letterObject[letter] = 1
-		}
-
+		// if (letterObject[letter]) { letterObject[letter] += 1 } else {
+		// 	letterObject[letter] = 1
+		// }
+		letterObject[letter] = letterObject[letter] + 1 || 1
 	}
 	return letterObject
 }
