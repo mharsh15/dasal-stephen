@@ -8,9 +8,34 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) { return harshImplementation(stringA, stringB) }
+function anagrams(stringA, stringB) {
+	//return harshImplementation(stringA, stringB)
+	return nonObjectStringSolution(stringA, stringB)
+}
+
+//string solution
+function nonObjectStringSolution(stringA, stringB) {
+	const stringToArrayA = helperStringToArray(stringA)
+	const stringToArrayB = helperStringToArray(stringB)
+
+	if (stringToArrayA.length !== stringToArrayB.length) {
+		return false
+	}
+
+	return stringToArrayA.every((char, i) => {
+		return char === stringToArrayB[i]
+	})
 
 
+	//return true
+
+}
+
+function helperStringToArray(word) {
+	return word.replace(/[^\w]/g, "").toLowerCase().split("").sort()
+}
+
+//Below two functions are one method to solve this problem
 function harshImplementation(stringA, stringB) {
 	console.log(getWordToObject(stringA), getWordToObject(stringB))
 	const stringAObject = getWordToObject(stringA)
@@ -51,4 +76,5 @@ function getWordToObject(word) {
 }
 
 //console.log(anagrams('Hi there', 'Bye there'))
+console.log(anagrams('rail safety', 'fairy tales'))
 module.exports = anagrams;
