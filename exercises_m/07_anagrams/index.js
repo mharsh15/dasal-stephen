@@ -20,7 +20,7 @@ function harshImplementation(stringA, stringB) {
 		return false
 	}
 	let counter = 0
-	for (key in stringAObject) {
+	for (let key in stringAObject) {
 		const countA = stringAObject[key]
 		const countB = stringBObject[key]
 		if (countA === countB) {
@@ -40,7 +40,7 @@ function getWordToObject(word) {
 	const updatedWord = word.replace(/[^\w]/g, "").toLowerCase()
 	//const letterSet = new Set(updatedWord)
 	const letterObject = {}
-	for (letter of updatedWord) {
+	for (let letter of updatedWord) {
 		//console.log(letter)
 		if (letterObject[letter]) { letterObject[letter] += 1 } else {
 			letterObject[letter] = 1
