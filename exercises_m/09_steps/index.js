@@ -17,6 +17,36 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) { stepsImplHarsh(n) }
 
+
+function stepsImplHarsh(n) {
+
+	for (let x = 0; x < n; x++) {
+		let pyramyd = pyramydStringCreator(0, x, n, "")
+		console.log(pyramyd)
+	}
+
+}
+function pyramydStringCreator(i, p, n, str) {
+
+	if (i == n) {
+		return str
+	}
+	if (i <= p) {
+		str = str + '#'
+	}
+	else {
+		str = str + ' '
+	}
+
+	if (i < n) {
+		return pyramydStringCreator(i + 1, p, n, str)
+	}
+	return str
+
+
+}
+
+steps(3)
 module.exports = steps;
