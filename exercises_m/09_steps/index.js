@@ -17,9 +17,12 @@
 //       '### '
 //       '####'
 
-function steps(n) { stepsImplHarsh(n) }
+function steps(n) { //stepsImplHarsh(n) 
+	stephenSolution(n)
 
+}
 
+/*First Solution */
 function stepsImplHarsh(n) {
 
 	for (let x = 0; x < n; x++) {
@@ -48,5 +51,29 @@ function pyramydStringCreator(i, p, n, str) {
 
 }
 
+/**Stephen Solution */
+function stephenSolution(n, row = 0, str = "") {
+
+	if (row === n) {
+		return
+	}
+
+	if (str.length === n) {
+		console.log(str)
+		return stephenSolution(n, row + 1, "")
+	}
+
+	if (str.length <= row) {
+		str += "#"
+	}
+	else {
+		str += " "
+	}
+
+	return stephenSolution(n, row, str)
+
+
+
+}
 steps(3)
 module.exports = steps;
