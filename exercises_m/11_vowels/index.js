@@ -9,7 +9,8 @@
 
 function vowels(str) {
 	//return hIterationImpl(str) 
-	return fancyStringFunction(str)
+	//return fancyStringFunction(str)
+	return fancyStringAdvanbced(str)
 }
 
 //Implemented By Harsh
@@ -33,6 +34,16 @@ function fancyStringFunction(str) {
 		return prev
 	}, 0)
 
+}
+
+function fancyStringAdvanbced(str) {
+	return str.toLowerCase().split("").reduce((prev, e, curI) => {
+		const vovels = ["a", "e", "i", "o", "u"]
+		if (vovels.includes(e)) {
+			prev += 1
+		}
+		return prev
+	}, 0)
 }
 
 console.log(vowels('Hi There!'))
