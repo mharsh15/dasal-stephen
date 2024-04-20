@@ -15,6 +15,52 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-function matrix(n) {}
+function matrix(n) { }
 
+function matrixPrinter(n) {
+	const totalNumber = n * n
+	const maxRow = n - 1
+	const maxCol = n - 1
+
+	//initializing variables
+	let currNum = 1
+	let currRow = 0
+	let currCol = 0
+
+	let initRow = 0
+	let initCol = 0
+
+	const matrix = []
+	for (let i = 0; i < n; i++) {
+		matrix.push([])
+	}
+	//first row
+
+	while (currCol <= maxCol) {
+		matrix[currRow][currCol] = currNum
+		currCol += 1
+		currNum += 1
+	}
+	console.log("test:", matrix)
+	//downward column
+	while (currRow < maxRow && !(currNum > totalNumber)) {
+		currRow += 1
+		matrix[currRow][currCol] = currNum
+		currNum += 1
+
+	}
+	//last row insert
+	while (currCol > initCol && !(currNum > totalNumber)) {
+		currCol -= 1
+		matrix[currRow][currCol] = currNum
+		currNum += 1
+		console.log(currNum)
+	}
+	//upward column insert
+
+	//sideward insert spiral
+	return matrix
+}
+
+console.log(matrixPrinter(2))
 module.exports = matrix;
