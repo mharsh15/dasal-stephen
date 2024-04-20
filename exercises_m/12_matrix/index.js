@@ -19,8 +19,8 @@ function matrix(n) { }
 
 function matrixPrinter(n) {
 	const totalNumber = n * n
-	const maxRow = n - 1
-	const maxCol = n - 1
+	let maxRow = n - 1
+	let maxCol = n - 1
 
 	//initializing variables
 	let currNum = 1
@@ -29,7 +29,7 @@ function matrixPrinter(n) {
 
 	let initRow = 0
 	let initCol = 0
-	const i = 0
+	let i = 0
 	const matrix = []
 	for (let i = 0; i < n; i++) {
 		matrix.push(new Array(n))
@@ -37,12 +37,12 @@ function matrixPrinter(n) {
 	//first row
 	console.log(matrix)
 	while (i < n - 1) {
-		while (currCol <= maxCol) {
+		while (currCol <= maxCol && (currNum <= totalNumber)) {
 			matrix[currRow][currCol] = currNum
 			currNum += 1
 			currCol += 1
 		}
-		console.log("test:", matrix)
+		console.log("test 1:", matrix)
 		currCol -= 1
 		//downward column
 		while (currRow < maxRow && (currNum <= totalNumber)) {
@@ -51,20 +51,31 @@ function matrixPrinter(n) {
 			currNum += 1
 
 		}
-		console.log(matrix)
+		console.log("test 2:", matrix)
 
 		//last row insert
 		while (currCol > initCol && (currNum <= totalNumber)) {
 			currCol -= 1
 			matrix[currRow][currCol] = currNum
 			currNum += 1
-			console.log(currCol, currNum)
+			//console.log(currCol, currNum)
 		}
 		//upward column insert
+		console.log("test 3:", matrix)
+		while (currRow > (initRow + 1) && (currNum <= totalNumber)) {
+			currRow -= 1
+			matrix[currRow][currCol] = currNum
+			currNum += 1
+		}
+		console.log("test 4:", matrix)
+		currCol += 1
+		maxCol -= 1
+		maxRow -= 1
+		i = i + 1
 	}
 	//sideward insert spiral
 	return matrix
 }
 
-console.log(matrixPrinter(4))
+console.log(matrixPrinter(3))
 module.exports = matrix;
