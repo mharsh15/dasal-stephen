@@ -32,29 +32,32 @@ function matrixPrinter(n) {
 
 	const matrix = []
 	for (let i = 0; i < n; i++) {
-		matrix.push([])
+		matrix.push(new Array(n))
 	}
 	//first row
-
+	console.log(matrix)
 	while (currCol <= maxCol) {
 		matrix[currRow][currCol] = currNum
-		currCol += 1
 		currNum += 1
+		currCol += 1
 	}
 	console.log("test:", matrix)
+	currCol -= 1
 	//downward column
-	while (currRow < maxRow && !(currNum > totalNumber)) {
+	while (currRow < maxRow && (currNum <= totalNumber)) {
 		currRow += 1
 		matrix[currRow][currCol] = currNum
 		currNum += 1
 
 	}
+	console.log(matrix)
+
 	//last row insert
-	while (currCol > initCol && !(currNum > totalNumber)) {
+	while (currCol > initCol && (currNum <= totalNumber)) {
 		currCol -= 1
 		matrix[currRow][currCol] = currNum
 		currNum += 1
-		console.log(currNum)
+		console.log(currCol, currNum)
 	}
 	//upward column insert
 
@@ -62,5 +65,5 @@ function matrixPrinter(n) {
 	return matrix
 }
 
-console.log(matrixPrinter(2))
+console.log(matrixPrinter(4))
 module.exports = matrix;
