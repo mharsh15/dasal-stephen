@@ -10,7 +10,8 @@
 function vowels(str) {
 	//return hIterationImpl(str) 
 	//return fancyStringFunction(str)
-	return fancyStringAdvanbced(str)
+	//return fancyStringAdvanbced(str)
+	return regexSol(str)
 }
 
 //Implemented By Harsh
@@ -46,6 +47,11 @@ function fancyStringAdvanbced(str) {
 	}, 0)
 }
 
+function regexSol(str) {
+	let regex = new RegExp(/[aeiou]/ig)
+	return [...str.matchAll(regex)].length ?? 0
+}
 console.log(vowels('Hi There!'))
 console.log(vowels('Why do yOu Ask?'))
+console.log(vowels('Why?'))
 module.exports = vowels;
