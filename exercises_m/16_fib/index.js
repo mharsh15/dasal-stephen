@@ -26,5 +26,19 @@ function setFib(n) {
 	return setFib(n - 1) + setFib(n - 2)
 }
 
+function fibIter(n) {
+	let num = 0;
+	let prevNum = num;
+	for (let i = 0; i < n; i++) {
+		if (i === 1) {
+			num = 1
+		}
+		let newNum = prevNum + num
+		prevNum = num
+		num = newNum
 
+	}
+	return num
+}
+//console.log(fibIter(39))
 module.exports = fib;
