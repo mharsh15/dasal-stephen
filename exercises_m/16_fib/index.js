@@ -52,7 +52,7 @@ function slowFib(n) {
 	}
 
 
-	return setFib(n - 1) + setFib(n - 2)
+	return mem(n - 1) + mem(n - 2)
 }
 
 function memoize(fn) {
@@ -64,11 +64,12 @@ function memoize(fn) {
 		}
 		const result = fn.apply(this, args);
 		cache[args] = result
-
+		//console.log(cache)
 		return result
 	}
 }
 
 //console.log(fibIter(39))
 const mem = memoize(slowFib)
+//console.log(mem(39))
 module.exports = mem;
