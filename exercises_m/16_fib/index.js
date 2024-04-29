@@ -40,5 +40,35 @@ function fibIter(n) {
 	}
 	return num
 }
+
+//MEMOIZATION FUNCTIONS
+function slowFib(n) {
+	if (n === 0) {
+		return 0
+	}
+
+	if (n === 1) {
+		return 1
+	}
+
+
+	return setFib(n - 1) + setFib(n - 2)
+}
+
+function memoize(fn) {
+
+	const cache = {}
+	return function (...args) {
+		if (cache[args]) {
+			return cache[args]
+		}
+		const result = fn.apply(this, args);
+		cache[args] = result
+
+		return result
+	}
+}
+
 //console.log(fibIter(39))
-module.exports = fib;
+const mem = memoize(slowFib)
+module.exports = mem;
