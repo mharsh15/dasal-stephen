@@ -10,6 +10,6 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
-class Stack {}
+class Stack { }
 
 module.exports = Stack;
