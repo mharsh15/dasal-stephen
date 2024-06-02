@@ -24,19 +24,25 @@ class LinkedList {
 	size() {
 		let node = this.head
 		let count = 0;
-		if (node !== null) {
-			count++
-		}
-		else {
 
-			return count
-		}
-		while (node.next !== null) {
-			count++
+		//MH Implemetation
+		// 	if (node !== null) {
+		// 		count++
+		// 	}
+		// 	else {
+
+		// 		return count
+		// 	}
+		// 	while (node.next !== null) {
+		// 		count++
+		// 		node = node.next
+		// 	}
+		// 	return count
+		while (node) {
+			count++;
 			node = node.next
 		}
 		return count
-
 	}
 
 }
