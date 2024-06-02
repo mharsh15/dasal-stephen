@@ -16,6 +16,11 @@ class LinkedList {
 		this.head = null;
 	}
 
+	insertFirst(data) {
+		this.head = new Node(data, this.head)
+
+	}
+
 }
 
 function testNode() {
@@ -25,6 +30,16 @@ function testNode() {
 	console.log(`n2: ${n2.data}, ${n2.next}`)
 	const n3 = new Node("are you there?", n2)
 	console.log(`n3: ${n3.data}, ${n3.next}`)
+	console.log(`n: ${n}}`)
+}
+
+function addNewLinkedList() {
+	let linkedList = new LinkedList()
+	linkedList.insertFirst("a")
+	linkedList.insertFirst("b")
+	linkedList.insertFirst("c")
+	console.log(linkedList.head)
 }
 testNode()
+addNewLinkedList()
 module.exports = { Node, LinkedList };
