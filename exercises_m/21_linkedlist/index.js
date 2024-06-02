@@ -21,6 +21,24 @@ class LinkedList {
 
 	}
 
+	size() {
+		let node = this.head
+		let count = 0;
+		if (node !== null) {
+			count++
+		}
+		else {
+
+			return count
+		}
+		while (node.next !== null) {
+			count++
+			node = node.next
+		}
+		return count
+
+	}
+
 }
 
 function testNode() {
@@ -39,6 +57,11 @@ function addNewLinkedList() {
 	linkedList.insertFirst("b")
 	linkedList.insertFirst("c")
 	console.log(linkedList.head)
+	console.log(`size: ${linkedList.size()}`)
+	const ll = new LinkedList()
+	console.log(`size: ${ll.size()}`)
+	ll.insertFirst("apfel")
+	console.log(`size: ${ll.size()}`)
 }
 testNode()
 addNewLinkedList()
