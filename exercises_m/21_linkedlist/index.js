@@ -54,10 +54,10 @@ class LinkedList {
 		let node = this.head
 		let lastNode = this.head
 		while (node) {
-			console.log("getLast", node)
+			//console.log("getLast", node)
 			if (node.next == null) {
 				lastNode = node
-				console.log("setLastNode", lastNode)
+				//console.log("setLastNode", lastNode)
 			}
 			node = node.next
 		}
@@ -85,6 +85,7 @@ function addNewLinkedList() {
 	console.log(`size: ${linkedList.size()}`)
 	const ll = new LinkedList()
 	console.log(`size: ${ll.size()}`)
+	console.log(`lastNode: ${ll.getLast()}`)
 	ll.insertFirst("apfel")
 	console.log(`size: ${ll.size()}`)
 	console.log(`lastNode: ${linkedList.getLast()}`)
