@@ -128,6 +128,8 @@ class LinkedList {
 			if (curLocation === position) {
 				returnNode = node
 				console.log("return node", curLocation, position)
+				return node
+
 			}
 
 			node = node.next
