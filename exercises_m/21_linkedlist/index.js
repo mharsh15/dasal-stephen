@@ -70,7 +70,10 @@ class LinkedList {
 
 	removeFirst() {
 		const firstNode = this.getFirst()
-		this.head = firstNode.next
+		if (firstNode) {
+			this.head = firstNode.next
+		}
+
 	}
 }
 
@@ -126,6 +129,8 @@ function testRemoveFirst() {
 	console.log(`size of l: ${l.getFirst().data} `)
 	l.removeFirst()
 	console.log(`first node after function of l: ${l.getFirst().data} `)
+	l.removeFirst()
+	l.removeFirst()
 }
 
 /**
