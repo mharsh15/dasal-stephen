@@ -94,6 +94,21 @@ class LinkedList {
 
 		}
 	}
+	insertLast(data) {
+		let node = this.head
+		if (!node) {
+			this.head = new Node(data)
+			return
+		}
+		while (node) {
+			if (!node.next) {
+				node.next = new Node(data)
+				return
+			}
+			node = node.next
+		}
+
+	}
 }
 
 /**
@@ -163,6 +178,16 @@ function testRemoveLast() {
 	l2 = new LinkedList()
 	l2.removeLast()
 }
+/**add at the end of list */
+function testInsertLast() {
+	const l = new LinkedList()
+	l.insertFirst("first")
+	l.insertFirst("second")
+	l.insertLast("third")
+	console.log(`last insert:${l.getLast().data}`)
+
+}
+
 /**
 * test function invocation
  */
@@ -170,7 +195,8 @@ function testRemoveLast() {
 //addNewLinkedList()
 //testClear()
 //testRemoveFirst()
-testRemoveLast()
+//testRemoveLast()
+testInsertLast()
 
 
 module.exports = { Node, LinkedList };
