@@ -96,17 +96,22 @@ class LinkedList {
 	}
 	insertLast(data) {
 		let node = this.head
+		const newNode = new Node(data)
 		if (!node) {
-			this.head = new Node(data)
+			this.head = newNode
 			return
 		}
-		while (node) {
-			if (!node.next) {
-				node.next = new Node(data)
-				return
-			}
-			node = node.next
-		}
+		//sol 1
+		// while (node) {
+		// 	if (!node.next) {
+		// 		node.next = newNode
+		// 		return
+		// 	}
+		// 	node = node.next
+		// }
+		//much preferred sol
+		const lastNode = this.getLast()
+		lastNode.next = newNode
 
 	}
 }
