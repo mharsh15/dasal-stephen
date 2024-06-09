@@ -49,7 +49,7 @@ class LinkedList {
 
 		return this.head
 	}
-
+	//get last node of linked list
 	getLast() {
 		let node = this.head
 		let lastNode = this.head
@@ -63,17 +63,36 @@ class LinkedList {
 		}
 		return lastNode
 	}
-
+	//clears entire linked list
 	clear() {
 		this.head = null
 	}
-
+	//remove first element
 	removeFirst() {
 		const firstNode = this.getFirst()
 		if (firstNode) {
 			this.head = firstNode.next
 		}
 
+	}
+
+	removeLast() {
+		let currentNode = this.head
+		let previousNode = null
+
+		if (this.size() == 1) {
+			this.head = null
+			return
+		}
+		while (currentNode) {
+
+			if (!currentNode.next) {
+				previousNode.next = null
+			}
+			previousNode = currentNode
+			currentNode = currentNode.next
+
+		}
 	}
 }
 
@@ -133,13 +152,25 @@ function testRemoveFirst() {
 	l.removeFirst()
 }
 
+function testRemoveLast() {
+	const l = new LinkedList()
+	l.insertFirst('c');
+	l.insertFirst('b');
+	l.insertFirst('a');
+	l.removeLast()
+	console.log(`get last: ${l.getLast().data}`)
+
+	l2 = new LinkedList()
+	l2.removeLast()
+}
 /**
 * test function invocation
  */
 //testNode()
 //addNewLinkedList()
 //testClear()
-testRemoveFirst()
+//testRemoveFirst()
+testRemoveLast()
 
 
 module.exports = { Node, LinkedList };
