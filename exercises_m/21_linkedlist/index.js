@@ -94,6 +94,7 @@ class LinkedList {
 
 		}
 	}
+	// insert data at last aka from head point
 	insertLast(data) {
 		let node = this.head
 		const newNode = new Node(data)
@@ -113,6 +114,25 @@ class LinkedList {
 		const lastNode = this.getLast()
 		lastNode.next = newNode
 
+	}
+	//gets an linkedList at that position
+	getAt(position) {
+		let curLocation = -1;
+		let node = this.head
+		let returnNode = null
+
+		while (node) {
+
+			curLocation += 1
+
+			if (curLocation === position) {
+				returnNode = node
+				console.log("return node", curLocation, position)
+			}
+
+			node = node.next
+		}
+		return returnNode
 	}
 }
 
@@ -193,6 +213,17 @@ function testInsertLast() {
 
 }
 
+/**add at the end of list */
+function testGetAt() {
+	const l = new LinkedList()
+	console.log(`getAt:${l.getAt(3)}`)
+	l.insertFirst("first") //2
+	l.insertFirst("second") //1
+	l.insertFirst("third") //0
+	console.log(`getAt:${l.getAt(0).data}`)
+	console.log(`getAt:${l.getAt(2)?.data}`)
+}
+
 /**
 * test function invocation
  */
@@ -201,7 +232,7 @@ function testInsertLast() {
 //testClear()
 //testRemoveFirst()
 //testRemoveLast()
-testInsertLast()
-
+//testInsertLast()
+testGetAt()
 
 module.exports = { Node, LinkedList };
