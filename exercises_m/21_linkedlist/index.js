@@ -158,6 +158,25 @@ class LinkedList {
 			node = node.next
 		}
 	}
+
+	insertAt(data, pos) {
+		const newNode = new Node(data)
+		const node = this.head
+
+		if (pos === 0) {
+			newNode.next = node
+			this.head = newNode
+			return
+		}
+
+		if (pos > this.size()) {
+			pos = this.size()
+		}
+
+		const oldNode = this.getAt(pos - 1)
+		newNode.next = oldNode.next
+		oldNode.next = newNode
+	}
 }
 
 /**
@@ -267,6 +286,26 @@ function testRemoveAt() {
 
 
 }
+/**
+ */
+/**insert new node at any pos of list */
+function testInsertAt() {
+	const l = new LinkedList()
+	console.log(`getAt:${l.getAt(3)}`)
+	l.insertFirst("first") //2
+	l.insertFirst("second") //1
+	l.insertFirst("third") //0
+	console.log(`insertAt:${l.insertAt("new_one", 0)}`)
+	console.log(`getAt:${l.getAt(0)?.data}`)
+	console.log(`insertAt:${l.insertAt("new_two", 2)}`)
+	console.log(`getAt:${l.getAt(2)?.data}`)
+	console.log(`removeAt:${l.insertAt("should_not_go", 10)}`) ///this should not work
+	console.log(`getAt:${l.getAt(10)?.data}`) //should return third
+	console.log(`removeAt:${l.removeAt(0)}`)
+	console.log(`getAt:${l.getAt(0)?.data}`)
+
+
+}
 
 /**
 * test function invocation
@@ -278,6 +317,7 @@ function testRemoveAt() {
 //testRemoveLast()
 //testInsertLast()
 //testGetAt()
-testRemoveAt()
+//testRemoveAt()
+testInsertAt()
 
 module.exports = { Node, LinkedList };
