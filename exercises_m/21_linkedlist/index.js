@@ -67,7 +67,7 @@ class LinkedList {
 	clear() {
 		this.head = null
 	}
-	//remove first element
+	//remove first element, first means this.head is pointing to
 	removeFirst() {
 		const firstNode = this.getFirst()
 		if (firstNode) {
@@ -75,7 +75,7 @@ class LinkedList {
 		}
 
 	}
-
+	//removes last element. here last means last element from head pointer
 	removeLast() {
 		let currentNode = this.head
 		let previousNode = null
