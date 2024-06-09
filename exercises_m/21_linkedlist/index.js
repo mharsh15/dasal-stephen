@@ -63,9 +63,18 @@ class LinkedList {
 		}
 		return lastNode
 	}
+
+	clear() {
+		this.head = null
+	}
 }
 
-
+/**
+ * all test functions *****************************
+ */
+/**
+ * to test creation of node
+ */
 function testNode() {
 	const n = new Node("hi")
 	console.log(n.data, n.next)
@@ -75,7 +84,9 @@ function testNode() {
 	console.log(`n3: ${n3.data}, ${n3.next}`)
 	console.log(`n: ${n}}`)
 }
-
+/**
+*checks creation of linked list, insertFirst Function, size function of linked list
+ */
 function addNewLinkedList() {
 	let linkedList = new LinkedList()
 	linkedList.insertFirst("a")
@@ -90,6 +101,23 @@ function addNewLinkedList() {
 	console.log(`size: ${ll.size()}`)
 	console.log(`lastNode: ${linkedList.getLast()}`)
 }
-testNode()
-addNewLinkedList()
+
+
+function testClear() {
+	const l = new LinkedList()
+	l.insertFirst("test")
+	console.log(`size of l: ${l.size()}`)
+	l.insertFirst("next")
+	console.log(`size of l: ${l.size()}`)
+	l.clear()
+	console.log(`size of l: ${l.size()}`)
+}
+
+/**
+* test function invocation
+ */
+//testNode()
+//addNewLinkedList()
+testClear()
+
 module.exports = { Node, LinkedList };
