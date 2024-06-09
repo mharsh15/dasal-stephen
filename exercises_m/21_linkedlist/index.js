@@ -67,6 +67,11 @@ class LinkedList {
 	clear() {
 		this.head = null
 	}
+
+	removeFirst() {
+		const firstNode = this.getFirst()
+		this.head = firstNode.next
+	}
 }
 
 /**
@@ -113,11 +118,23 @@ function testClear() {
 	console.log(`size of l: ${l.size()}`)
 }
 
+function testRemoveFirst() {
+	const l = new LinkedList()
+	l.insertFirst("test")
+	console.log(`size of l: ${l.getFirst().data} `)
+	l.insertFirst("next")
+	console.log(`size of l: ${l.getFirst().data} `)
+	l.removeFirst()
+	console.log(`first node after function of l: ${l.getFirst().data} `)
+}
+
 /**
 * test function invocation
  */
 //testNode()
 //addNewLinkedList()
-testClear()
+//testClear()
+testRemoveFirst()
+
 
 module.exports = { Node, LinkedList };
