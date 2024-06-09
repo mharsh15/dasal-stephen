@@ -141,15 +141,19 @@ class LinkedList {
 		let curLocation = 0;
 		let node = this.head
 		let previousNode = null
-		let returnNode = null
 
 		while (node) {
 
 			if (curLocation === position) {
+				if (previousNode === null) {
+					this.head = node.next
+					return
+				}
 				previousNode.next = node.next
 				return
 
 			}
+			curLocation += 1
 			previousNode = node
 			node = node.next
 		}
@@ -252,8 +256,16 @@ function testRemoveAt() {
 	l.insertFirst("first") //2
 	l.insertFirst("second") //1
 	l.insertFirst("third") //0
-	console.log(`getAt:${l.removeAt(1).data}`)
+	console.log(`removeAt:${l.removeAt(1)}`)
 	console.log(`getAt:${l.getAt(1)?.data}`)
+	console.log(`removeAt:${l.removeAt(0)}`)
+	console.log(`getAt:${l.getAt(0)?.data}`)
+	console.log(`removeAt:${l.removeAt(3)}`) ///this should not work
+	console.log(`getAt:${l.getAt(0)?.data}`) //should return third
+	console.log(`removeAt:${l.removeAt(0)}`)
+	console.log(`getAt:${l.getAt(0)?.data}`)
+
+
 }
 
 /**
@@ -266,6 +278,6 @@ function testRemoveAt() {
 //testRemoveLast()
 //testInsertLast()
 //testGetAt()
-removeAt()
+testRemoveAt()
 
 module.exports = { Node, LinkedList };
