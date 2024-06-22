@@ -177,6 +177,14 @@ class LinkedList {
 		newNode.next = oldNode.next
 		oldNode.next = newNode
 	}
+
+	forEach(fn) {
+		let counter = 0
+		while (counter != this.size()) {
+			fn(this.getAt(counter), counter)
+			counter += 1
+		}
+	}
 }
 
 /**
@@ -307,6 +315,28 @@ function testInsertAt() {
 
 }
 
+function testForEach() {
+	const l = new LinkedList()
+	console.log(`getAt:${l.getAt(3)}`)
+	l.insertFirst(10) //2
+	l.insertFirst(20) //1
+	l.insertFirst(30) //0
+	l.forEach((node, index) => {
+		console.log(node)
+		if (node.data > 20) {
+			node.data = node.data * 10
+		}
+
+
+	})
+
+	console.log(`getAt:${l.getAt(0)?.data}`)
+	console.log(`getAt:${l.getAt(1)?.data}`)
+	console.log(`getAt:${l.getAt(2)?.data}`)
+
+
+}
+
 /**
 * test function invocation
  */
@@ -318,6 +348,7 @@ function testInsertAt() {
 //testInsertLast()
 //testGetAt()
 //testRemoveAt()
-testInsertAt()
+//testInsertAt()
+testForEach()
 
 module.exports = { Node, LinkedList };
