@@ -17,12 +17,12 @@ const Node = L.Node;
 const LinkedList = L.LinkedList;
 
 function midpoint(list) {
-	console.log(list)
-	slow = list.getFirst()
-	fast = list.getFirst()
+
+	let slow = list.getFirst()
+	let fast = list.getFirst()
 
 	while (fast) {
-		console.log(slow.data)
+
 
 		fast = fast.next
 		if (fast) {
