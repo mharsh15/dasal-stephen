@@ -12,6 +12,38 @@
 //   l.insertLast('c')
 //   midpoint(l); // returns { data: 'b' }
 
-function midpoint(list) {}
+const L = require('./linkedlist');
+const Node = L.Node;
+const LinkedList = L.LinkedList;
 
+function midpoint(list) {
+	console.log(list)
+	slow = list.getFirst()
+	fast = list.getFirst()
+
+	while (fast) {
+		console.log(slow.data)
+
+		fast = fast.next
+		if (fast) {
+			if (fast.next) {
+				fast = fast.next
+				slow = slow.next
+			}
+		}
+	}
+
+	return slow
+}
+
+function testOdd() {
+	const l = new LinkedList();
+	l.insertLast('a');
+	l.insertLast('b');
+	//l.insertLast('c');
+	//l.insertLast('d');
+	//l.insertLast('e');
+	console.log(`midpoint: ${midpoint(l).data}`)
+}
+testOdd()
 module.exports = midpoint;
