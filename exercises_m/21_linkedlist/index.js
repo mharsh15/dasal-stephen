@@ -185,6 +185,15 @@ class LinkedList {
 			counter += 1
 		}
 	}
+
+	//for of
+	*[Symbol.iterator]() {
+		let node = this.head
+		while (node) {
+			yield node
+			node = node.next
+		}
+	}
 }
 
 /**
@@ -349,6 +358,6 @@ function testForEach() {
 //testGetAt()
 //testRemoveAt()
 //testInsertAt()
-testForEach()
+//testForEach()
 
 module.exports = { Node, LinkedList };
