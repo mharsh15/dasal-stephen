@@ -29,12 +29,30 @@ class Node {
 
 	}
 
-
-
 }
 
-class Tree { }
+class Tree {
 
+	constructor() {
+		this.root = null
+	}
+
+	traverseBF(fn) {
+		let rNode = []
+		let cArray = this.root.children
+		fn(this.root)
+		while (cArray.length != 0) {
+			for (let child of cArray) {
+				console.log(child)
+				rNode.push(...child.children)
+				fn(child)
+			}
+			cArray = rNode
+			rNode = []
+		}
+
+	}
+}
 //tests
 function testTrees() {
 	const n1 = new Node("a")
@@ -49,6 +67,25 @@ function testTrees() {
 	console.log(n1.children)
 
 }
-//testTrees()
 
+function testbreathFirst() {
+	const letters = [];
+	const t = new Tree();
+	t.root = new Node('a');
+	t.root.add('b'); //l1
+	t.root.add('c'); //l2
+	t.root.children[0].add('b->d') //l3
+	t.root.children[0].add('b->e1') //l3
+	t.root.children[1].add('c->e2') //l3
+	t.root.children[0].children[0].add("b->d>f")
+	t.root.children[1].children[0].add("c->e2>g")
+	t.root.children[0].children[0].children[0].add("b->d>f>h")
+	t.traverseBF(node => {
+		letters.push(node.data);
+		//console.log(node)
+	});
+	console.log(letters)
+}
+//testTrees()
+testbreathFirst()
 module.exports = { Tree, Node };
