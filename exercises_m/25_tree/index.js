@@ -37,6 +37,8 @@ class Tree {
 		this.root = null
 	}
 
+	//Breadth Frist
+	//transverse each row breadth first
 	traverseBF(fn) {
 		let rNode = []
 		let cArray = this.root.children
@@ -51,6 +53,16 @@ class Tree {
 			rNode = []
 		}
 
+	}
+	//transeverse depth first
+	traverseDF(fn) {
+		let rNode = []
+		let cPoint = this.root
+		while (cPoint) {
+			fn(cPoint)
+			rNode.unshift(...cPoint.children)
+			cPoint = rNode.shift()
+		}
 	}
 }
 //tests
@@ -105,7 +117,23 @@ function testbreathFirstUpdate() {
 	});
 	console.log(letters)
 }
+function testDepthFirst() {
+	const letters = [];
+	const t = new Tree();
+	t.root = new Node('a');
+	t.root.add('b');
+	t.root.add('g');
+	t.root.children[0].add('c');
+	t.root.children[0].children[0].add('d');
+	t.root.children[0].children[0].add('e');
+	t.root.children[0].add('f');
+	t.traverseDF(node => {
+		letters.push(node.data);
+	});
+	console.log(letters)
+}
 //testTrees()
 //testbreathFirst()
-testbreathFirstUpdate()
+//testbreathFirstUpdate()
+testDepthFirst()
 module.exports = { Tree, Node };
