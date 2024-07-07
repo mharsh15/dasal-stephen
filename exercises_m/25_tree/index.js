@@ -67,7 +67,7 @@ function testTrees() {
 	console.log(n1.children)
 
 }
-
+//breadth first
 function testbreathFirst() {
 	const letters = [];
 	const t = new Tree();
@@ -86,6 +86,26 @@ function testbreathFirst() {
 	});
 	console.log(letters)
 }
+function testbreathFirstUpdate() {
+	const letters = [];
+	const t = new Tree();
+	t.root = new Node(1);
+	t.root.add(2); //l1
+	t.root.add(3); //l2
+	t.root.children[0].add(21) //l3
+	t.root.children[0].add(22) //l3
+	t.root.children[1].add(31) //l3
+	t.root.children[0].children[0].add(211)
+	t.root.children[1].children[0].add(311)
+	t.root.children[0].children[0].children[0].add(2111)
+	t.traverseBF(node => {
+		node.data = node.data * 2
+		letters.push(node.data);
+
+	});
+	console.log(letters)
+}
 //testTrees()
-testbreathFirst()
+//testbreathFirst()
+testbreathFirstUpdate()
 module.exports = { Tree, Node };
