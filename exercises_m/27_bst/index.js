@@ -18,50 +18,67 @@ class Node {
 		this.right = null
 
 	}
+	//non recursive
+	// insert(data) {
+	// 	// if (!this.data) {
+	// 	// 	this.data = data
+	// 	// }
+	// 	// else {
+	// 	const newNode = new Node(data)
 
+	// 	// const rootNode 
+	// 	// rootNode.data = this.data
+	// 	// rootNode.left = this.left
+	// 	// rootNode.right = this.right
+	// 	let currentNode = null
+	// 	let nextNode = null
+	// 	if (this.data > newNode.data) {
+	// 		currentNode = this.left
+	// 		if (!this.left) {
+	// 			this.left = newNode
+	// 		}
+	// 	} else {
+	// 		currentNode = this.right
+	// 		if (!this.right) {
+	// 			this.right = newNode
+	// 		}
+	// 	}
+
+
+
+	// 	while (currentNode) {
+	// 		nextNode = currentNode.data > data ? currentNode.left : currentNode.right
+	// 		let status = currentNode.data > data ? "left" : "right"
+	// 		//console.log("currentNode data".currentNode.data, "nextNode", nextNode)
+	// 		if (nextNode === null) {
+	// 			if (status === "left") {
+	// 				currentNode.left = newNode
+	// 			} else {
+	// 				currentNode.right = newNode
+	// 			}
+	// 		}
+	// 		currentNode = nextNode
+	// 	}
+
+
+	// }
+	// recusrive
 	insert(data) {
-		// if (!this.data) {
-		// 	this.data = data
-		// }
-		// else {
 		const newNode = new Node(data)
-
-		// const rootNode 
-		// rootNode.data = this.data
-		// rootNode.left = this.left
-		// rootNode.right = this.right
-		let currentNode = null
-		let nextNode = null
-		if (this.data > newNode.data) {
-			currentNode = this.left
-			if (!this.left) {
-				this.left = newNode
-			}
-		} else {
-			currentNode = this.right
-			if (!this.right) {
-				this.right = newNode
-			}
+		if (data < this.data && this.left) {
+			this.left.insert(data)
 		}
-
-
-
-		while (currentNode) {
-			nextNode = currentNode.data > data ? currentNode.left : currentNode.right
-			let status = currentNode.data > data ? "left" : "right"
-			//console.log("currentNode data".currentNode.data, "nextNode", nextNode)
-			if (nextNode === null) {
-				if (status === "left") {
-					currentNode.left = newNode
-				} else {
-					currentNode.right = newNode
-				}
-			}
-			currentNode = nextNode
+		else if (data < this.data) {
+			this.left = newNode
 		}
-
-
+		else if (data > this.data && this.right) {
+			this.right.insert(data)
+		}
+		else {
+			this.right = newNode
+		}
 	}
+
 
 	contains() {
 
