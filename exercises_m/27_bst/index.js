@@ -11,6 +11,90 @@
 // class.  Contains should accept a 'data' argument
 // and return the Node in the tree with the same value.
 
-class Node {}
+class Node {
+	constructor(data) {
+		this.data = data
+		this.left = null
+		this.right = null
+
+	}
+
+	insert(data) {
+		// if (!this.data) {
+		// 	this.data = data
+		// }
+		// else {
+		const newNode = new Node(data)
+
+		// const rootNode 
+		// rootNode.data = this.data
+		// rootNode.left = this.left
+		// rootNode.right = this.right
+		let currentNode = null
+		let nextNode = null
+		if (this.data > newNode.data) {
+			currentNode = this.left
+			if (!this.left) {
+				this.left = newNode
+			}
+		} else {
+			currentNode = this.right
+			if (!this.right) {
+				this.right = newNode
+			}
+		}
+
+
+
+		while (currentNode) {
+			nextNode = currentNode.data > data ? currentNode.left : currentNode.right
+			let status = currentNode.data > data ? "left" : "right"
+			//console.log("currentNode data".currentNode.data, "nextNode", nextNode)
+			if (nextNode === null) {
+				if (status === "left") {
+					currentNode.left = newNode
+				} else {
+					currentNode.right = newNode
+				}
+			}
+			currentNode = nextNode
+		}
+
+
+	}
+
+	contains() {
+
+	}
+}
+
+function testInsert() {
+	const node = new Node(10);
+	node.insert(5);
+	node.insert(15);
+	node.insert(17);
+
+	console.log(node) //.toEqual(5);
+	console.log(node.right.data)//.toEqual(15);
+	//console.log(node.right.right.data)//.toEqual(17);
+
+
+}
+
+function testInsertTwo() {
+	const node = new Node(10);
+	node.insert(5);
+	node.insert(15);
+	node.insert(20);
+	node.insert(0);
+	node.insert(-5);
+	node.insert(3);
+	console.log(node.left.left.right)
+
+}
+
+//testInsert()
+testInsertTwo()
+
 
 module.exports = Node;
