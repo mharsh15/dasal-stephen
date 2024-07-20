@@ -80,7 +80,21 @@ class Node {
 	}
 
 
-	contains() {
+	contains(data) {
+		if (data === this.data) {
+			return this
+		} else if (data < this.data && this.left) {
+			return this.left.contains(data)
+
+		} else if (data < this.data && !this.left) {
+			return null
+		}
+		else if (data > this.data && this.right) {
+			return this.right.contains(data)
+
+		} else {
+			return null
+		}
 
 	}
 }
@@ -110,8 +124,18 @@ function testInsertTwo() {
 
 }
 
+function checkTwo() {
+
+	const node = new Node(10);
+	node.insert(5);
+	node.insert(15);
+	node.insert(16);
+
+	console.log(node.contains(17))
+}
 //testInsert()
-testInsertTwo()
+//testInsertTwo()
+//checkTwo()
 
 
 module.exports = Node;
