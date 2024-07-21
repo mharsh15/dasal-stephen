@@ -31,6 +31,10 @@ function validate(node, min = null, max = null) {
 	}
 	else if (node.left.data < node.data) {
 		leftStatus = validate(node.left, min, max)
+		console.log("too big max nl:", node.left.data, min)
+		if (min && node.left.data < min) {
+			leftStatus = false
+		}
 
 	} else {
 		leftStatus = false
@@ -92,7 +96,29 @@ function testThree() {
 	//console.log(n)
 	console.log(validate(n))
 }
+function testFour() {
+	const n = new Node(10);
+	n.insert(5);
+	n.insert(15);
+	n.insert(0);
+	n.insert(20);
+	n.right.left = new Node(999);
+	//console.log(n)
+	console.log(validate(n))
+}
+function testFive() {
+	const n = new Node(10);
+	n.insert(5);
+	n.insert(15);
+	n.insert(0);
+	n.insert(20);
+	n.right.left = new Node(-999);
+	//console.log(n)
+	console.log(validate(n))
+}
 //testOne() //true
 //testTwo() //false
-testThree() //false
+//testThree() //false
+//testFour() //false
+//testFive() //false
 module.exports = validate;
