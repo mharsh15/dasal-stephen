@@ -7,8 +7,8 @@
 3. Inside that file there will be main function. add your implementation in that function below TODO
 4. Implement your logic inside the function.
 5. To test, go to main.go and import your function and passvalue
-   5.1 Use go run . to run main file
-6. To check your test cases use go test to check test cases
+6. Use go run . to run main file
+7. To check your test cases use go test to check test cases
 
 # commands
 
