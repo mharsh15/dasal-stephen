@@ -19,7 +19,9 @@
 
 1. if its a new feature or new file
    "<file_name>/<language>/<status>/<message>"
+   <br>
    language: go/js/ts/py/kt
+   <br>
    status:
    feat: new feature or new file being added
    impl: when logic is added to existing file
