@@ -23,6 +23,9 @@
    language: go/js/ts/py/kt
    <br>
    status:
+   <br>
    feat: new feature or new file being added
+   <br>
    impl: when logic is added to existing file
+   <br>
    Example: "04_maxchar/go/feat/completed maxCharWithTestCases "
