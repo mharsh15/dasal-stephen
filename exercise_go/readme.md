@@ -14,3 +14,13 @@
 
 1. to run/check if function is working: go run .
 2. to run test cases: go test
+
+# commit
+
+1. if its a new feature or new file
+   "<file_name>/<language>/<status>/<message>"
+   language: go/js/ts/py/kt
+   status:
+   feat: new feature or new file being added
+   impl: when logic is added to existing file
+   Example: "04_maxchar/go/feat/completed maxCharWithTestCases "
