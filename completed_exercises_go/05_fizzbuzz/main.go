@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
-
 func main() {
-	fmt.Println("Yay")
+	FizzBuzz(5)
+	FizzBuzz(15)
+
 }
