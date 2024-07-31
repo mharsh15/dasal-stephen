@@ -13,3 +13,6 @@ package main
 //   fizz
 //   4
 //   buzz
+func FizzBuzz(num int) {
+
+}

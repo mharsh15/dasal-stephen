@@ -1,3 +1,3 @@
-module dalas.co.com.maxchar.completed
+module dalas.co.com.maxchar
 
 go 1.21.5
